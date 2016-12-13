@@ -12,12 +12,42 @@ end
 
 User.create!([{
   username: "olifen",
-  email: "oli.fen@hotmail.com",
+	email: "oli@fen.com",
+	first_name: "oli",
+	last_name: "fen",
+	location: "wimbledon",
   password: "password",
   password_confirmation: "password"
 },{
   username: "odotfenz",
-  email: "odotfenz@hotmail.com",
+	email: "odot@fenz.com",
+	first_name: "odot",
+	last_name: "fenz",
+	location: "balham",
   password: "password",
   password_confirmation: "password"
 }])
+
+Venue.create!([{
+  name: "Furzedown Recreation Centre",
+  address: "Ramsdale Rd, London SW17 9BP"
+},{
+  name: "Chestnut Grove School",
+  address: "45 Chestnut Grove, London SW12 8JZ"
+},{
+  name: "Aspire Centre",
+  address: "337 Merton Rd, London SW18 5JU"
+}])
+
+# Game.create!([{
+#
+# }])
+
+
+# t.string   "name"
+# t.integer  "venue_id"
+# t.integer  "user_id"
+# t.integer  "no_of_places"
+# t.time     "start_time"
+# t.time     "end_time"
+# t.date     "date"

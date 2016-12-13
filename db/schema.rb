@@ -10,16 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209095311) do
+ActiveRecord::Schema.define(version: 20161213112101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "address"
-    t.float    "lat"
-    t.float    "lng"
     t.integer  "no_of_places"
     t.time     "start_time"
     t.time     "end_time"
@@ -27,7 +24,15 @@ ActiveRecord::Schema.define(version: 20161209095311) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "name"
+    t.integer  "venue_id"
+    t.float    "price"
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
+    t.index ["venue_id"], name: "index_games_on_venue_id", using: :btree
+  end
+
+  create_table "games_venues", id: false, force: :cascade do |t|
+    t.integer "venue_id", null: false
+    t.integer "game_id",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,7 +44,21 @@ ActiveRecord::Schema.define(version: 20161209095311) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "location"
+    t.string   "lat"
+    t.string   "lng"
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "google_place_id"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "postcode"
   end
 
   add_foreign_key "games", "users"
+  add_foreign_key "games", "venues"
 end

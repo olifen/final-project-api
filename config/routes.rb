@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   scope :api do
     # TODO: confirm if we really need the "except:" clause for the resources below:
     resources :users, except: [:create]
-    resources :games, except: [:create]
+    resources :games
+    resources :venues
 
     post 'register', to: 'auth#register'
     post 'login', to: 'auth#login'

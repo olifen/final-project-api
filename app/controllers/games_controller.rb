@@ -17,6 +17,7 @@ class GamesController < ApplicationController
   # POST /games
   def create
     @game = Game.new(game_params)
+    @game.user_id = current_user.id
 
     if @game.save
       render json: @game, status: :created, location: @game
@@ -36,7 +37,11 @@ class GamesController < ApplicationController
 
   # DELETE /games/1
   def destroy
-    @game.destroy
+    if @game.user == current_user || !@game.user
+      @game.destroy
+    else
+      render json: { errors: ["Unauthorized"] }, status: 401
+    end
   end
 
   private
@@ -47,6 +52,6 @@ class GamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def game_params
-      params.require(:game).permit(:user_id, :address, :lat, :lng, :no_of_places, :start_time, :end_time, :date)
+      params.require(:game).permit(:user_id, :no_of_places, :start_time, :end_time, :date, :name, :price, :venue_id)
     end
 end

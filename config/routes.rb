@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, except: [:create]
     resources :games
     resources :venues
-
+    resources :memberships
     post 'register', to: 'auth#register'
     post 'login', to: 'auth#login'
   end

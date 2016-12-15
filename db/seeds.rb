@@ -11,21 +11,25 @@
 end
 
 User.create!([{
-  username: "olifen",
-	email: "oli@fen.com",
-	first_name: "oli",
-	last_name: "fen",
-	location: "wimbledon",
-  password: "password",
-  password_confirmation: "password"
+	username: "olifen",
+	email: "oli.fen@hotmail.com",
+	first_name: "Oliver",
+	last_name: "Fennelly",
+	location: "Wimbledon, London, United Kingdom",
+	lat: "51.41833889999999",
+	lng: "-0.22062879999998586",
+	image: "https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/13557953_10157124724360422_7553889345954849621_n.jpg?oh=defee5ad8487134cec96c15f6b0f4fe7&oe=58F50621",
+	phone_number: "07734469391"
 },{
-  username: "odotfenz",
-	email: "odot@fenz.com",
-	first_name: "odot",
-	last_name: "fenz",
-	location: "balham",
-  password: "password",
-  password_confirmation: "password"
+  username: "lio",
+	email: "lio.mes@hotmail.com",
+	first_name: "Lionel",
+	last_name: "Messi",
+	location: "Barcelona",
+	lat: "",
+	lng: "",
+	image: "",
+	phone_number: "07734469391"
 }])
 
 Venue.create!([{
